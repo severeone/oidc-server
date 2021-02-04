@@ -1,0 +1,11 @@
+---
+db_address: "127.0.0.1"
+auth_code_life_time: 1d
+id_token_life_time: 1d
+access_token_life_time: 1d
+email_verified: "https://example.com"
+confirm_email: "http://localhost:3000/auth/confirm-email/"
+login: "http://localhost:3000/signin"
+signup_complete: "http://localhost:3000/signup-complete"
+reset_password_api_endpoint: "http://localhost:9000/api/v2/users/password_reset"
+---

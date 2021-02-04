@@ -1,0 +1,41 @@
+authCodeLifeTime: {{auth_code_life_time}}
+idTokenLifeTime: {{id_token_life_time}}
+accessTokenLifeTime: {{access_token_life_time}}
+emailVerifiedPage: {{email_verified}}
+confirmEmailPage: {{confirm_email}}
+loginPage: {{login}}
+signupCompletePage: {{signup_complete}}
+verificationEmailFilePath: "html/verification-email.html"
+accessTokenKeyFilePath: "secrets/access-token-key"
+idTokenKeyFilePath: "secrets/id-token-key"
+adminTokenFilePath: "secrets/admin-token"
+resetPasswordAPIEndpoint: {{reset_password_api_endpoint}}
+integrationTestTargetUrl: http://localhost:9180/
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 9000
+
+  adminConnectors:
+    - type: http
+      port: 9001
+
+database:
+  driverClass: org.postgresql.Driver
+  user: oidcuser
+  password: oidcpwd
+  url: jdbc:postgresql://{{db_address}}/oidc
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "/* OIDC Health Check */ SELECT * FROM users"
+  validationQueryTimeout: 3s
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute
+
+logging:
+  type: external

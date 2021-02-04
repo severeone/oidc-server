@@ -1,0 +1,22 @@
+plugins {
+    id 'com.palantir.docker-run' version '0.20.1'
+}
+
+task connectToNetwork(type: Exec) {
+    commandLine 'docker', 'network', 'connect', 'oidcnet', 'auth-server'
+}
+
+def versionProps = new Properties()
+if (file("./version.properties").isFile()) {
+    file("./version.properties").withInputStream { versionProps.load(it) }
+} else {
+    versionProps.setProperty('version.semver', '0.0.0')
+}
+
+dockerRun {
+    name 'auth-server'
+    image 'severeone/oidc-server:' + versionProps.getProperty('version.semver')
+    ports '9000:9000', '9001:9001'
+    volumes 'local/log': '/opt/log'
+    daemonize true
+}

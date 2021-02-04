@@ -1,0 +1,11 @@
+---
+db_address: 127.0.0.1
+auth_code_life_time: 5m
+id_token_life_time: 30d
+access_token_life_time: 1m
+email_verified: "https://alpha.example.com"
+confirm_email: "https://alpha.example.com/auth/confirm-email/"
+login: "https://alpha.example.com/signin"
+signup_complete: "https://alpha.example.com/signup-complete"
+reset_password_api_endpoint: "http://alpha.example.com:9000/api/v2/users/password_reset"
+---

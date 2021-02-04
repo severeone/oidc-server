@@ -1,0 +1,23 @@
+development:
+  driver: postgres
+  open: user=oidcuser dbname=oidc sslmode=disable password=oidcpwd port=7432 host=127.0.0.1
+
+dev_integration:
+  driver: postgres
+  open: user=oidcuser dbname=oidc_test sslmode=disable password=oidcpwd port=7432 host=127.0.0.1
+
+staging:
+  driver: postgres
+  open: user=oidcuser dbname=oidc sslmode=disable password=oidcpwd port=6432 host=127.0.0.1
+
+staging_integration:
+  driver: postgres
+  open: user=oidcuser dbname=oidc_test sslmode=disable password=oidcpwd port=6432 host=127.0.0.1
+
+production:
+  driver: postgres
+  open: user=oidcuser dbname=oidc sslmode=disable password=oidcpwd port=5432 host=127.0.0.1
+
+prod_integration:
+  driver: postgres
+  open: user=oidcuser dbname=oidc_test sslmode=disable password=oidcpwd port=5432 host=127.0.0.1
